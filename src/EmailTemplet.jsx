@@ -121,7 +121,7 @@ const EmailTemplet = () => {
       <div
         className={read ? "grid grid-cols-[1fr_2fr] gap-2" : "grid grid-cols-1"}
       >
-        <ul className="flex flex-col gap-5">
+        <ul className={read ? "flex flex-col gap-5 max-h-[850px] overflow-y-auto" :"flex flex-col gap-5"}>
           <Email emails={emails} handleReadClick={handleReadClick} />
         </ul>
         {read ? (
