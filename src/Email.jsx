@@ -31,7 +31,7 @@ const Email = ({ emails, handleReadClick }) => {
                 <p>{ele.short_description}</p>
                 <h5 className="flex gap-4">
                   <span>{date.toLocaleString()}</span>{" "}
-                  <span className="font-bold text-pink">
+                  <span className="font-bold text-pink-500">
                     {ele.isFav ? "Favorite" : ""}
                   </span>
                 </h5>
