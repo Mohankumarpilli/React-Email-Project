@@ -4,12 +4,11 @@ import ReadEmail from "./ReadEmail";
 import Buttons from "./Buttons";
 
 const EmailTemplet = () => {
-
-  const [filter , setFilter ]= useState("All")
+  const [filter, setFilter] = useState("All");
 
   const [display, setDisplay] = useState({});
   const [read, setRead] = useState(false);
-  
+
   const [emails, setEmails] = useState([]);
 
   const [allEmails, setAllEmails] = useState([]);
@@ -42,31 +41,25 @@ const EmailTemplet = () => {
   }, []);
 
   const handleReadClick = (id) => {
+
     setEmails((prev) =>
-      prev.map((ele, index) => {
-        if (index == id - 1) {
-          return { ...ele, read: true };
-        } else {
-          return ele;
-        }
-      })
+      prev.map((ele) => (ele.id === id ? { ...ele, read: true } : ele))
     );
+
     setAllEmails((prev) =>
-      prev.map((ele, index) => {
-        if (index == id - 1) {
-          return { ...ele, read: true };
-        } else {
-          return ele;
-        }
-      })
+      prev.map((ele) => (ele.id === id ? { ...ele, read: true } : ele))
     );
-    if (display.id - 1 == id - 1 && read) {
-      console.log(id, " ", display.id);
+
+    if (display.id === id && read) {
       setRead(false);
     } else {
       setRead(true);
     }
-    setDisplay(() => emails[id - 1]);
+
+    const selectedEmail = allEmails.find((ele) => ele.id === id);
+    if (selectedEmail) {
+      setDisplay(selectedEmail);
+    }
   };
   const handleFav = (id) => {
     setEmails((prev) =>
@@ -90,34 +83,30 @@ const EmailTemplet = () => {
   };
 
   const handleAll = () => {
-    setRead(false)
+    setRead(false);
     setFilter("All");
     setEmails(allEmails);
   };
   const handleClickFav = () => {
-    setRead(false)
-
+    setRead(false);
     setFilter("Fav");
-    
+
     setEmails(() => allEmails.filter((ele) => ele.isFav));
   };
 
   const handleUnRead = () => {
-    setRead(false)
-
-
+    setRead(false);
     setFilter("Unread");
 
-    setEmails(() => allEmails.filter((ele) => !ele.read));
+    setEmails(allEmails.filter((ele) => !ele.read));
   };
 
   const handleRead = () => {
-    setRead(false)
-
+    setRead(false);
 
     setFilter("Read");
 
-    setEmails(() => allEmails.filter( ele => ele.read));
+    setEmails(() => allEmails.filter((ele) => ele.read));
   };
 
   return (
@@ -127,7 +116,7 @@ const EmailTemplet = () => {
         handleFav={handleClickFav}
         handleRead={handleRead}
         handleUnRead={handleUnRead}
-        filter = {filter}
+        filter={filter}
       />
       <div
         className={read ? "grid grid-cols-[1fr_2fr] gap-2" : "grid grid-cols-1"}
