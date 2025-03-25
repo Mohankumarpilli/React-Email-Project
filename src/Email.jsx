@@ -7,16 +7,16 @@ const Email = ({ emails, handleReadClick }) => {
           <li
             id={ele.id}
             key={ele.id}
-            className={
-              !ele.read
-                ? "p-5 border-1 bg-gray-100 border-black-400 rounded-xl"
-                : "p-5 border-1 border-black-400 rounded-xl"
-            }
+            style={ {backgroundColor: ele.read ? "white" : "#F4F5F9"}}
+            className={`p-5 border-1 border-black-400 rounded-xl transition-all duration-300 hover:border-pink-500`}
             onClick={() => handleReadClick(ele.id)}
           >
-            <div className="flex gap-10 ">
-              <div className="w-15 h-15 rounded-full bg-pink-500 text-white text-xl flex justify-center items-center font-bold">
-                <span>{ele.from.name.split("")[0].toUpperCase()}</span>
+            <div className="flex gap-10">
+              <div
+                style={{ backgroundColor: "#E54065" }}
+                className="w-15 h-15 rounded-full text-white text-xl flex justify-center items-center font-bold"
+              >
+                <span>{ele.from.name.charAt(0).toUpperCase()}</span>
               </div>
               <div className="flex flex-col gap-1">
                 <h3>
@@ -31,7 +31,7 @@ const Email = ({ emails, handleReadClick }) => {
                 <p>{ele.short_description}</p>
                 <h5 className="flex gap-4">
                   <span>{date.toLocaleString()}</span>{" "}
-                  <span className="font-bold text-pink-500">
+                  <span className="font-bold" style={{ color: "#E54065" }}>
                     {ele.isFav ? "Favorite" : ""}
                   </span>
                 </h5>

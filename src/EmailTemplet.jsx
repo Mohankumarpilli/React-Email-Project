@@ -125,7 +125,7 @@ const EmailTemplet = () => {
           <Email emails={emails} handleReadClick={handleReadClick} />
         </ul>
         {read ? (
-          <div className={`p-5 border rounded-md`}>
+          <div className={`p-5 border rounded-md`} style={ {backgroundColor : "#F2F2F2"}} >
             <ReadEmail display={display} handleFav={handleFav} />
           </div>
         ) : (

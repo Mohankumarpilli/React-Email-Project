@@ -23,8 +23,8 @@ const ReadEmail = ({ display, handleFav }) => {
   }, [display.id]);
 
   return (
-    <div className="flex w-full gap-6 p-5">
-      <div className="w-15 h-15 rounded-full bg-pink-500 text-white text-xl flex justify-center items-center font-bold">
+    <div className="flex w-full gap-6 p-5" >
+      <div className="w-15 h-15 rounded-full text-white text-xl flex justify-center items-center font-bold" style={{ backgroundColor: "#E54065" }}>
         <span>{display.from.name.split("")[0].toUpperCase()}</span>
       </div>
       <div className="flex flex-col gap-3 p-3 w-full">
@@ -32,7 +32,8 @@ const ReadEmail = ({ display, handleFav }) => {
           <h1 className="text-3xl font-bold">{display.subject}</h1>
           <button
             onClick={() => handleFav(display.id - 1)}
-            className="pr-3 pl-3 pt-1 pb-1 bg-pink-400 rounded-full text-white font-bold"
+            className="pr-3 pl-3 pt-1 pb-1 rounded-full text-white font-bold"
+            style={{ backgroundColor: "#E54065" }}
           >
             Make as favorite
           </button>
