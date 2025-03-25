@@ -4,7 +4,7 @@ const Email = ({ emails, handleReadClick }) => {
       {emails.map((ele) => {
         const date = new Date(ele.date);
         return (
-          <li key={ele.id} className="p-5 border-1 border-pink-400 rounded-xl" onClick={ () => handleReadClick(ele.id)}>
+          <li key={ele.id} className={ !ele.read ? "p-5 border-1 bg-gray-100 border-black-400 rounded-xl" : "p-5 border-1 border-black-400 rounded-xl"} onClick={ () => handleReadClick(ele.id)}>
             <div className="flex gap-10 ">
               <img
                 src="./M.png"

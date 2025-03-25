@@ -9,8 +9,6 @@ const EmailTemplet = () => {
 
   const [display, setDisplay] = useState({});
   const [read, setRead] = useState(false);
-
-  // const [selectedMailId , setSelectedMailId ] = useState(null)
   
   const [emails, setEmails] = useState([]);
 
