@@ -24,7 +24,9 @@ const ReadEmail = ({ display, handleFav }) => {
 
   return (
     <div className="flex w-full gap-6 p-5">
-      <img src="./M.png" alt="" className="w-10 h-10 rounded-full" />
+      <div className="w-15 h-15 rounded-full bg-pink-500 text-white text-xl flex justify-center items-center font-bold">
+        <span>{display.from.name.split("")[0].toUpperCase()}</span>
+      </div>
       <div className="flex flex-col gap-3 p-3 w-full">
         <div className="flex justify-between">
           <h1 className="text-3xl font-bold">{display.subject}</h1>
